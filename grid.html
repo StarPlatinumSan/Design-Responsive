@@ -6,6 +6,129 @@
 		<title>Display Grid</title>
 
 		<link rel="stylesheet" href="styles/main.css" />
+		<link rel="stylesheet" href="grid.css" />
+
+		<script src="script.js" defer></script>
 	</head>
-	<body></body>
+	<body>
+		<div class="containerGrid">
+			<h1 class="title">Display Grid</h1>
+			<p class="description sectionTitle">Voici un petit tour sur les proprietés CSS les plus communes pour display grid.</p>
+			<p class="description"><strong style="color: red">N'ouvrez pas cette page sur téléphone, les grids n'apparaissent pas bien sur mobile.</strong></p>
+			<p class="description"><strong class="green">Les textes en vert sont des challenges et questions.</strong></p>
+			<hr>
+			<hr>
+			<hr>
+			<p class="description">Le parent est la boite grise contenant les items.</p>
+			<p class="description">Le parent a besoin de l'attribut <strong class="gold">display: grid</strong></p>
+			<hr />
+			<hr />
+			<hr />
+
+			<p class="description">Ceci est à quoi ressemble la grille par défaut après y avoir assignée 3 colonnes égales.</p>
+			<p class="description">
+				<strong class="green">Comment pourrais-je faire pour donner un <strong class="gold">gap</strong> exclusivement aux rangées? Au colonnes? Au grid?</strong>
+			</p>
+			<div class="gridSection0 example1">
+				<div class="gridItem item0">Item 1</div>
+				<div class="gridItem item0">Item 2</div>
+				<div class="gridItem item0">Item 3</div>
+				<div class="gridItem item0">Item 4</div>
+				<div class="gridItem item0">Item 6</div>
+				<div class="gridItem item0">Item 7</div>
+				<div class="gridItem item0">Item 8</div>
+				<div class="gridItem item0">Item 9</div>
+				<div class="gridItem item0">Item 10</div>
+			</div>
+
+			<hr />
+			<hr />
+			<hr />
+
+			<p class="description">
+				Ce premier exemple introduit <strong class="gold">grid-template-columns</strong> dans le parent qui permet de definir les colonnes du grid. Ici, les colonnes ont chacunes 1fr de place c'est-à-dire une fraction de la largeur du conteneur. Et avec
+				l'appel de la fonction repeat, nous pouvons faire <strong class="bg">repeat(3, 1fr)</strong> qui revient à faire 3 fois 1fr.
+			</p>
+
+			<p class="description"><strong class="green">Seriez-vous capables de faire en sorte que la 2ème colonne soit 2 fois plus grande que les autres?</strong></p>
+			<div class="gridSection example1">
+				<div class="gridItem">Item 1</div>
+				<div class="gridItem">Item 2</div>
+				<div class="gridItem">Item 3</div>
+				<div class="gridItem">Item 4</div>
+				<div class="gridItem">Item 6</div>
+				<div class="gridItem">Item 7</div>
+				<div class="gridItem">Item 8</div>
+				<div class="gridItem">Item 9</div>
+			</div>
+
+			<p class="description">Ce deuxième exemple introduit <strong class="gold">grid-template-rows</strong> dans le parent qui permet de definir les lignes du grid.</p>
+			<p class="description">
+				Ici, nous avons défini <strong class="bg">grid-template-rows: 200px 150px;</strong> qui signifie que la première rangée est 200px et la deuxième 150px. S'il y a plus de rangées, elles prennent l'espace qu'elles ont besoin.
+			</p>
+
+			<p class="description"><strong class="green">Selon vous, dans quel cas est-il préférable d’utiliser auto ou 1fr pour gérer la hauteur des lignes dans une grille ?</strong></p>
+			<small class="description">Psst. pense à l'adaptabilité du contenu des items...</small>
+			<div class="gridSection example2">
+				<div class="gridItem">Item 1</div>
+				<div class="gridItem">Item 2</div>
+				<div class="gridItem">Item 3</div>
+				<div class="gridItem">Item 4</div>
+				<div class="gridItem">Item 6</div>
+				<div class="gridItem">Item 7</div>
+				<div class="gridItem">Item 8</div>
+				<div class="gridItem">Item 9</div>
+			</div>
+
+			<p class="description">Ce troisième exemple introduit <strong class="gold">grid-template-areas</strong> dans le parent qui permet de definir les zones du grid.</p>
+			<p class="description">Chaque unité du grid a besoin de son nom de référence CSS appelé <strong class="gold">grid-area</strong>.</p>
+			<p class="description">La structure dans le parent ressemble comme suit:</p>
+			<pre class="bg">
+grid-template-areas:
+	"a a b"
+	"c d d"
+	"e f g";
+			</pre>
+			<p class="description"><strong class="green">Existe-il un moyen de laisser un espace vide dans le grid? Si oui, comment faire?</strong></p>
+			<div class="gridSection example3">
+				<div class="gridItem exampleItem1">a</div>
+				<div class="gridItem exampleItem2">b</div>
+				<div class="gridItem exampleItem3">c</div>
+				<div class="gridItem exampleItem4">d</div>
+				<div class="gridItem exampleItem5">e</div>
+				<div class="gridItem exampleItem6">f</div>
+				<div class="gridItem exampleItem7">g</div>
+			</div>
+
+			<p class="description">Ce quatrième exemple introduit <strong class="gold">grid-column</strong> et <strong class="gold">grid-row</strong>.</p>
+			<p class="description">Ces deux attributs sont des les proprietés unidimensionnelles pour <strong class="white">grid-area</strong>. Ils permettent de faire des alias pour les zones du grid.</p>
+
+			<p class="description">Ici l'item 1 <strong class="bg">span</strong> sur 2 colonnes en partant de la première ligne du grid. (On ne commence pas à 0).</strong></p>
+			<p class="description">L'item 2 <span class="bg">span</span> sur 2 lignes en partant de la deuxième colonne du grid.</p>
+			<p class="description">L'item 8 occupe toutes les colonnes, sur la dernière rangée à l'aide du <strong class="bg">1 / -1</strong>.</p>
+
+			<p class="description"><strong class="green">En utilisant les propriétés grid-column et grid-row, seriez-vous capable de créer une mise en page tel que l'élément 1 occupe les trois premières colonnes et s’étend sur deux lignes en hauteur.
+			L'élément 2 est placé sous l'élément 1, occupant uniquement la première colonne.
+			L'élément 3 prend les deux dernières colonnes de la deuxième ligne, à côté de l'élément 2.
+			Les autres éléments continuent de remplir la grille dans l’ordre, en reprenant une disposition normale après la troisième ligne?</strong></p>
+
+			<div class="gridSection example4">
+				<div class="gridItem itemExo4">Item 1</div>
+				<div class="gridItem itemExo4">Item 2</div>
+				<div class="gridItem itemExo4">Item 3</div>
+				<div class="gridItem itemExo4">Item 4</div>
+				<div class="gridItem itemExo4">Item 5</div>
+				<div class="gridItem itemExo4">Item 6</div>
+				<div class="gridItem itemExo4">Item 7</div>
+				<div class="gridItem itemExo4">Item 8</div>
+			</div>
+
+			<p class="description"><strong class="green">Challenge: que fait le CSS suivant?</strong></p>
+			<p class="description"><strong class="bg">grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));</strong></p>
+
+			<p class="description" style="margin-top: 2rem;"> <a href="https://grid.malven.co" class="linksBlanc">Pour plus d'aides-mémoires sur display: grid</a> </p>
+
+			<p class="description" style="background-color: gold; color: black; font-weight: bold; margin-top: 2rem; padding: 1rem">CSS Grid est utile pour mettre en place des structures de mise en page complexes en 2D. CSS Flex est utile pour mettre en place des structures de mise en page linéaires en 1D. L'importance est d'avoir la bonne balance entre ces deux approches. Mais qu'en est-il quand j'ai toujours du contenu qui overflow? Je pense qu'un tour sur les <a class="links" href="units.html">unitées responsives</a> est essentiel.</p>
+		</div>
+	</body>
 </html>

@@ -2,10 +2,63 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=`, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width`, initial-scale=1.0" />
 		<title>Responsive Units</title>
 
 		<link rel="stylesheet" href="styles/main.css" />
+
+		<style src="script.js" defer></style>
 	</head>
-	<body></body>
+	<body>
+		<div class="containerUnits">
+			<h1 class="title">Unités Responsives</h1>
+			<p class="description">Jusqu'à maintenant, vous avez principalement utilisés les pixels pour donner une taille aux objets et textes.</p>
+			<p class="description">
+				Les pixels (px) ne sont pas responsives car ils définissent des dimensions fixes qui ne s'ajustent pas en fonction de la taille d’écran. Cela peut poser problème sur les petits écrans (comme les téléphones), où les éléments risquent de paraître
+				trop grands, overflow leur conteneur, ou sur les grands écrans, où ils peuvent sembler trop petits. Dans l'ensemble, ils vont donner des designs pas responsive pour toutes les tailles d'écrans et sur un écran où la page sera correcte, sur une
+				autre elle sera désagréable à utiliser, voir complétement inutilisable. Malgré cela, les pixels restent utiles pour des détails précis comme les bordures fines, les icônes ou encore certains éléments positionnés absolument, car ils assurent une
+				taille constante et un rendu net.
+			</p>
+
+			<div class="units">
+				<section class="unit-section">
+					<h2 class="bg">1. Pourcentages (%)</h2>
+
+					<p>Les pourcentages sont utilisés pour définir des tailles relatives à un élément parent. Ils sont idéaux pour des éléments qui doivent s'adapter en fonction de la taille de leur conteneur.</p>
+					<p><strong>Exemple :</strong> `width: 50%` donnera à l'élément la moitié de la largeur de son parent.</p>
+				</section>
+
+				<section class="unit-section">
+					<h2 class="bg">2. Viewport Width (vw) et Viewport Height (vh)</h2>
+
+					<p>Les unités `vw` et `vh` représentent respectivement 1% de la largeur et de la hauteur de la fenêtre d'affichage. Elles sont particulièrement utiles pour adapter des éléments à la taille de l'écran, indépendamment de leur conteneur parent.</p>
+					<p><strong>Quand les utiliser :</strong> Pour créer des mises en page ou des images qui doivent occuper un pourcentage de l'écran.</p>
+				</section>
+
+				<section class="unit-section">
+					<h2 class="bg">3. Unités relatives : rem et em</h2>
+					<p>Les unités `em` et `rem` sont basées sur la taille de la police. `em` dépend de la taille de police de l'élément parent, tandis que `rem` est relatif à la taille de la police racine (html).</p>
+
+					<strong class="gold">Les rem sont les unités que j'utilise le plus souvent.</strong>
+
+					<small>Il faudra évidemment faire un peu d'essai erreur au début avant d'apprendre quelle chiffre de rem est le plus approprié, mais visez toujours dans les alentours de 1 - 3 rem.</small>
+					<p><strong>Quand les utiliser :</strong> Pour la typographie et les espacements, surtout lorsque vous souhaitez que les éléments changent de taille proportionnellement.</p>
+				</section>
+
+				<section class="unit-section">
+					<h2 class="bg">5. Min, Max, et Clamp</h2>
+					<p>Les fonctions `min()`, `max()`, et `clamp()` permettent de fixer des tailles minimum, maximum, et de limiter la variation d'une valeur. Elles sont très utiles pour des mises en page fluides et adaptatives.</p>
+					<p><strong>Exemple :</strong> `font-size: clamp(1rem, 2vw, 2rem);` ajuste la taille de la police entre 1rem et 2rem en fonction de la largeur de la fenêtre.</p>
+				</section>
+			</div>
+
+			<p class="description" style="background-color: gold; color: black; font-weight: bold; margin-top: 2rem; padding: 1rem">
+				Il est important de ne pas abuser des unités de %, vw et vh, elles restent toutefois des unités situationnelles, dans mon parcours d'apprentissage du design responsive, j'ai pris beaucoup de temps à apprendre quand les utiliser, alors si au début
+				ça peut ne pas paraitre super évident, ça viendra avec le temps. L'important est toujours de faire des tests sur plusieurs tailles d'écran en faisant F12 et allant sur le Devs Tool. Un conseil de rue que je peux donner, si vous n'êtes pas
+				certains de vouloir utiliser % ou vw/vh (qui d'ailleurs se ressemblent en terme de fonctionnalités), mieux vaut ne pas les prendre et opter pour rem qui sont les unités responsives les plus utilisés.
+			</p>
+
+			<button class="btn" onclick="location.href = 'index.html'">Retour</button>
+		</div>
+	</body>
 </html>

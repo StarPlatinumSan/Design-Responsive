@@ -1,4 +1,4 @@
-/* Ne pas toucher à ce fichier */
+/* Ne pas toucher ce fichier */
 
 :root {
 	--primary-color: #121212;
@@ -65,10 +65,20 @@ ol {
 }
 
 .links {
+	color: #2a2a2a;
 	transition: all 0.2s ease;
 }
 
 .links:hover {
+	color: var(--gold-accent);
+}
+
+.linksBlanc {
+	color: var(--text-color);
+	transition: all 0.2s ease;
+}
+
+.linksBlanc:hover {
 	color: var(--gold-accent);
 }
 
@@ -79,6 +89,17 @@ ol {
 .white {
 	color: rgb(255, 255, 255);
 }
+
+.bg {
+	background-color: var(--text-color);
+	color: #121212;
+}
+
+.green {
+	color: rgb(72, 255, 0);
+}
+
+/* SECTION FLEX */
 
 .gap-control {
 	padding-top: 1rem;
@@ -142,8 +163,6 @@ ol {
 .gap-control input[type="number"] {
 	-moz-appearance: textfield;
 }
-
-/* SECTION FLEX */
 
 .containerFlex {
 	display: flex;
@@ -228,6 +247,76 @@ ol {
 	color: #121212;
 }
 
+/* SECTION UNITS */
+
+.containerUnits {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 2rem;
+	text-align: center;
+}
+
+.units {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+.units > * {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	border: 2px solid white;
+	border-radius: 15px;
+	padding: 1rem;
+}
+
+.containerUnits .btn {
+	margin-top: 5rem;
+}
+
+/* SECTION MEDIA */
+
+.containerMedia {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	padding: 2rem;
+	gap: 1rem;
+}
+
+.containerMedia p {
+	font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+.containerMedia pre {
+	overflow: scroll;
+	width: 70%;
+	font-size: 0.8rem;
+	margin-top: 0.5rem;
+}
+
+.media-queries {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.mobile-first {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.listAstuce {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
 /* FIN SECTIONS */
 
 .container > * {
@@ -256,7 +345,7 @@ ol {
 	color: var(--primary-color);
 }
 
-#retourBtn {
+.retourBtn {
 	position: absolute;
 	right: 2rem;
 	display: flex;
@@ -268,6 +357,12 @@ ol {
 	height: 40px;
 }
 
+#credits {
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+
 @media screen and (min-width: 700px) {
 	.container > * {
 		flex-direction: row;
@@ -277,7 +372,7 @@ ol {
 		width: 30vw;
 		padding-top: 5rem;
 		padding-bottom: 5rem;
-		padding: 4rem 2rem 4rem 2rem;
+		padding: 5rem 2rem 5rem 2rem;
 	}
 }
 
@@ -297,17 +392,26 @@ ol {
 		flex-direction: column;
 	}
 
+	.select {
+		padding: 2.25rem 1rem 2.25rem 1rem;
+	}
+
 	.flexItem {
 		padding: 0;
 		max-width: 20vw;
 	}
 
-	#retourBtn {
+	.retourBtn {
 		width: 3rem;
 		height: 3rem;
 		font-size: 0.7rem;
-		top: 5px;
+		top: 7px;
 		right: 10px;
 		align-items: center;
+	}
+
+	.units {
+		display: flex;
+		flex-direction: column;
 	}
 }

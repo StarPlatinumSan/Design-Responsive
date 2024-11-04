@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Transformations</title>
+
+		<link rel="stylesheet" href="styles/main.css" />
+	</head>
+	<body>
+		<div class="containerMedia">
+			<h1 class="title">Media Queries et Approche Mobile-First</h1>
+
+			<section class="media-queries">
+				<h2 class="titre">Media Queries</h2>
+				<p class="description">
+					Les media queries permettent d’appliquer des styles spécifiques en fonction de la taille de l’écran ou du type d'appareil. Elles facilitent l'adaptation de la mise en page à différents écrans (mobile, tablette, ordinateur).
+				</p>
+				<p class="description"><strong>Exemple de syntaxe :</strong></p>
+				<pre class="bg"><code style="color: black;">
+@media screen and (min-width: 768px) {
+	/* Styles pour les écrans de 768px et plus */
+}
+            </code></pre>
+
+				<pre class="bg"><code style="color: black">
+@media screen and (max-width: 1600px) {
+	/* Styles pour les écrans de 1600px et moins */
+}
+            </code></pre>
+			</section>
+
+			<section class="mobile-first">
+				<h2>Approche Mobile-First</h2>
+				<p class="description">
+					L'approche mobile-first consiste à concevoir d'abord pour les petits écrans, puis à ajouter des styles pour les écrans plus larges. Cette méthode garantit une meilleure expérience utilisateur sur mobile, en chargeant moins de styles inutiles
+					pour ces appareils.
+				</p>
+				<h3>Bonnes pratiques mobile-first :</h3>
+				<ul class="listAstuce">
+					<li>Éviter de définir des <strong>width</strong> et <strong>height</strong> fixes qui bloquent la mise en page ; préférez des valeurs flexibles (%, `auto`, `min-content`).</li>
+					<li>Utilisez des unités responsives comme <strong>em</strong>, <strong>rem</strong>, ou <strong>vw/vh</strong> pour les marges, les espacements, et les tailles de police.</li>
+					<li>Appliquez les media queries à partir de <strong>min-width</strong> pour étendre les styles de base (petits écrans) vers des écrans plus larges.</li>
+					<li>Testez régulièrement sur différents appareils pour vérifier que le contenu est bien adapté à chaque taille d’écran.</li>
+					<li class="gold">
+						Nous allons généralement vouloir utiliser display: flex pour le format téléphone (donc toujours commencer par ça) puis utiliser display: grid dans les media queries de tailles. Généralement le CSS de base est le CSS mobile, ensuite nous avons
+						souvent un media query format tablette, puis format ordinateur. Si vous faites bien votre structure HTML et votre CSS, normalement vos media queries ne devraient pas être trop chargés, et donc le temps n'est pas doublé/triplé pendant le
+						développement, ne vous en faites pas.
+					</li>
+				</ul>
+			</section>
+
+			<button class="btn" onclick="location.href = 'index.html'">Retour</button>
+		</div>
+	</body>
+</html>

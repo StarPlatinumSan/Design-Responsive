@@ -41,7 +41,7 @@ unitsDiv.addEventListener("click", () => {
 	window.location.href = "units.html";
 });
 transformDiv.addEventListener("click", () => {
-	window.location.href = "transform.html";
+	window.location.href = "media.html";
 });
 
 window.addEventListener("resize", function () {
