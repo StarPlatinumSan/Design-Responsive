@@ -1,0 +1,16 @@
+/* Variables en CSS */
+/* Utiliser [attribut selector]: var(--name); */
+:root {
+	--primary-color: #121212;
+	--secondary-color: #2a2a2a;
+	--text-color: #e0e0e0;
+	--gold-light-accent: #ffd700;
+	--gold-accent: #ffc107;
+	--border-color: #ffffff;
+}
+
+.flexSection {
+}
+
+.flexItem {
+}

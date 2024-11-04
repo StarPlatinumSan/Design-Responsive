@@ -1,0 +1,47 @@
+.btnFooter {
+	display: flex;
+	flex-direction: column;
+	color: white;
+	font-size: 0.75rem;
+	justify-self: right;
+}
+
+.btnFooter input[type="checkbox"] {
+	position: relative;
+	background-color: #222;
+	border: none;
+	width: 50px;
+	height: 25px;
+	appearance: none;
+	outline: none;
+	border-radius: 13px;
+	box-shadow: inset 0 1px 1px #ffffff33, inset 0 -1px 1px #ffffff33;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+.btnFooter input[type="checkbox"]:checked {
+	background-color: gold;
+	box-shadow: inset 0 1px 1px #5858581a, inset 0 -1px 1px #5858581a;
+}
+
+.btnFooter input[type="checkbox"]::before {
+	content: "";
+	position: absolute;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	top: 0px;
+	right: 0px;
+	background: linear-gradient(to bottom, #444, #222);
+	transition: 0.5s;
+	box-shadow: inset 0 1px 1px #ffffff33, inset 0 -1px 1px #ffffff33;
+	border: 1px solid #444;
+}
+
+.btnFooter input[type="checkbox"]:checked::before {
+	background: linear-gradient(to bottom, gold, var(--gold-accent));
+	box-shadow: inset 0 1px 1px var(--gold-accent), inset 0 -1px 1px var(--gold-accent);
+	transform: translateX(-25px);
+	border: 1px solid var(--border-color);
+}

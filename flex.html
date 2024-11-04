@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Display Flex</title>
+
+		<link rel="stylesheet" href="styles/main.css" />
+		<link rel="stylesheet" href="styles/flex.css" />
+		<link rel="stylesheet" href="styles/switch.css" />
+
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<div class="containerFlex">
+			<h1 class="title">Display Flex</h1>
+
+			<button class="btn" id="retourBtn" onclick="goBack()">Retour</button>
+
+			<p class="description sectionTitle">Voici un petit tour sur les proprietés CSS les plus communes pour display flex.</p>
+
+			<p class="description">Le parent est la boite grise contenant les items.</p>
+
+			<p class="description">Par défaut, le parent est <strong class="white">display: block</strong></p>
+
+			<p class="description">Il a besoin de l'attribut <strong class="gold">display: flex</strong></p>
+
+			<div class="switchSection">
+				<span>display: flex</span>
+				<div class="btnFooter"><input class="btnDisplay" type="checkbox" id="lightModeButton" onclick="switchDisplay()" autocomplete="off" /></div>
+				<span>display: block</span>
+			</div>
+
+			<div class="hidden" id="directionHidden">
+				<p class="description">Par défaut, display: flex va donner l'attribut <strong class="gold">flex-direction: row</strong></p>
+
+				<p class="description">Donc les éléments dans le parent seront alignés horizontalement. Voyons voir si je donne au parent l'attribut <strong class="gold">flex-direction: column</strong></p>
+
+				<div class="switchSection" id="switchDirection">
+					<span>flex-direction: column</span>
+					<div class="btnFooter"><input class="btnFlexDirection" type="checkbox" id="lightModeButton" onclick="switchDirection()" autocomplete="off" /></div>
+					<span>flex-direction: row</span>
+				</div>
+			</div>
+
+			<div class="hidden" id="directionReverse">
+				<p class="description">
+					Bravo! Il existe également <strong class="white">flex-direction: column-reverse</strong> et <strong class="white">flex-direction: row-reverse</strong> qui permettent d'obtenir le même résultat que leurs frères column et row, mais avec les items
+					dans le sens inverse.
+				</p>
+
+				<p class="description">Maintenant, nous allons nous attaquer à l'attribut <strong class="gold">justify-content</strong></p>
+
+				<p class="description">Par défaut, l'attribut est <strong class="white">justify-content: flex-start</strong>, mais il en existe plusieurs autres. Voici quelques exemples:</p>
+
+				<div class="justify-content-options radioOptions">
+					<div class="justifyDiv">
+						<input autocomplete="off" type="radio" id="justify-content-flex-start" name="justify-content" value="flex-start" onchange="updateJustifyContent(this.value)" checked /> <label for="justify-content-flex-start">flex-start</label>
+					</div>
+
+					<div class="justifyDiv"><input autocomplete="off" type="radio" id="justify-content-center" name="justify-content" value="center" onchange="updateJustifyContent(this.value)" /> <label for="justify-content-center">center</label></div>
+
+					<div class="justifyDiv"><input autocomplete="off" type="radio" id="justify-content-flex-end" name="justify-content" value="flex-end" onchange="updateJustifyContent(this.value)" /> <label for="justify-content-flex-end">flex-end</label></div>
+
+					<div class="justifyDiv">
+						<input autocomplete="off" type="radio" id="justify-content-space-between" name="justify-content" value="space-between" onchange="updateJustifyContent(this.value)" /> <label for="justify-content-space-between">space-between</label>
+					</div>
+
+					<div class="justifyDiv">
+						<input autocomplete="off" type="radio" id="justify-content-space-around" name="justify-content" value="space-around" onchange="updateJustifyContent(this.value)" /> <label for="justify-content-space-around">space-around</label>
+					</div>
+
+					<div class="justifyDiv">
+						<input autocomplete="off" type="radio" id="justify-content-space-evenly" name="justify-content" value="space-evenly" onchange="updateJustifyContent(this.value)" /> <label for="justify-content-space-evenly">space-evenly</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="hidden" id="justifyContentDiv">
+				<p class="description"><strong>Rien ne fonctionne?</strong></p>
+
+				<p class="description">
+					C'est normal, car l'attribut <strong class="white">justify-content</strong> contrôle l'alignement des items le long de l'axe principal. Lorsque <strong>flex-direction</strong> est défini sur <strong>column</strong>, l'axe principal devient
+					vertical. Cela signifie que <strong>justify-content</strong> aligne les items de haut en bas dans le conteneur. Si les items occupent déjà toute la hauteur du conteneur, <strong>justify-content</strong> n'aura aucun effet visible, car il n'y a
+					pas d'espace pour les repositionner. Pour aligner les items horizontalement dans ce cas, il nous faut utiliser <strong>align-items</strong>, qui contrôle l'alignement sur l'axe perpendiculaire (horizontal avec
+					<strong>flex-direction: column</strong>).
+				</p>
+
+				<p class="description" style="color: red">Dorénavant, je t'invite à ajuster le <strong class="white">flex-direction</strong> plus haut à ton goût pour bien essayer ces prochains attributs autant à la verticale qu'à la horizontale.</p>
+
+				<button class="btn" onclick="showAlignItems()">Suivant</button>
+			</div>
+
+			<div class="hidden" id="alignItemsDiv">
+				<p class="description" style="padding-top: 1rem">L'attribut <strong class="gold">align-items</strong> contrôle l'alignement des items le long de l'axe ''secondaire'' pour faire simple. Voici les plus connus:</p>
+
+				<div class="align-items-options radioOptions">
+					<div><input autocomplete="off" type="radio" id="align-items-flex-start" name="align-items" value="flex-start" onchange="updateAlignItems(this.value)" checked /> <label for="align-items-flex-start">flex-start</label></div>
+
+					<div><input autocomplete="off" type="radio" id="align-items-center" name="align-items" value="center" onchange="updateAlignItems(this.value)" /> <label for="align-items-center">center</label></div>
+
+					<div><input autocomplete="off" type="radio" id="align-items-flex-end" name="align-items" value="flex-end" onchange="updateAlignItems(this.value)" /> <label for="align-items-flex-end">flex-end</label></div>
+
+					<div><input autocomplete="off" type="radio" id="align-items-stretch" name="align-items" value="stretch" onchange="updateAlignItems(this.value)" /> <label for="align-items-stretch">stretch</label></div>
+				</div>
+
+				<small class="description">Psst. Si ça ne marche pas, inverse le flex-direction !</small>
+
+				<small class="description">Tu n'auras pas besoin de faire ça lorsque tu travailleras avec un espace en 2D qui est plus grand verticalement ET horizontalement que tes items.</small>
+
+				<p class="description" style="fontweight: bold; padding-top: 1rem">
+					Il existe également <strong class="gold">align-self</strong> et <strong class="gold">justify-self</strong> avec les mêmes valeurs qui contrôlent l'alignement d'un seul item sur l'axe secondaire et l'axe principal respectivement. Vous devez
+					cependant l'appliquer sur l'item en question et non pas le parent, évidemment.
+				</p>
+
+				<!-- <button class="btn" onclick="alignSelf()">Suivant</button> -->
+
+				<button class="btn" onclick="gapSection()">Suivant</button>
+			</div>
+
+			<div class="hidden" id="gapDiv">
+				<p class="description">L'attribut <strong class="gold">gap</strong> est sûrement un de mes préférés. C'est avec celui-ci que vous pouvez donner l'espacement entre les items de votre choix, dans le parent.</p>
+
+				<p class="description">
+					Tiens, j'ai aggrandi la hauteur du parent et reset tout ce que tu as fait jusqu'à maintenant. Tu peux maintenant librement essayer l'attribut <strong class="gold">gap : [valeur];</strong>, mais aussi tous les autres attributs vus ci-dessus.
+				</p>
+
+				<div class="gap-control">
+					<div class="number-input">
+						<span for="gapInput">gap:</span>
+						<button class="decrement" onclick="adjustGap(-1)">-</button>
+						<input autocomplete="off" type="number" id="gapInput" name="gapInput" value="0" min="0" step="1" />
+						<button class="increment" onclick="adjustGap(1)">+</button>
+						<span>px; &nbsp;</span>
+
+						<button class="btn" onclick="resetGap()">Reset</button>
+					</div>
+				</div>
+
+				<small class="description"
+					>Tu remarqueras que si tu donnes un nombre de pixels trop grand, les items vont déborder, ce problème est dû au fait que les px sont des unités non-responsives. Ce sujet sera traité plus en détail dans la section
+					<strong class="white">Unités responsives</strong> !</small
+				>
+
+				<button class="btn" onclick="moreInfo()">Suivant</button>
+			</div>
+
+			<div class="flexSection" style="display: block">
+				<div class="flexItem">Item 1</div>
+				<div class="flexItem">Item 2</div>
+				<div class="flexItem">Item 3</div>
+				<div class="flexItem">Item 4</div>
+				<div class="flexItem">Item 5</div>
+			</div>
+
+			<div class="hidden" id="alignSelfDiv">
+				<p class="description" style="fontweight: bold; padding-top: 1rem">
+					Il est bon d'explorer par vous-mêmes certains autres attributs qui ne seront pas vus interactivement aujourd'hui tel quel <strong class="gold">flex-wrap</strong> qui contrôle si les éléments restent sur une seule ligne ou s’enroulent sur
+					plusieurs lignes. Les plus connus étant <strong class="white">flex-wrap: nowrap</strong> et <strong class="white">flex-wrap: wrap</strong>.
+				</p>
+
+				<p class="description" style="font-weight: bold; padding-top: 1rem">
+					<strong class="gold">flex-flow</strong> combine les propriétés <strong class="white">flex-direction</strong> et <strong class="white">flex-wrap</strong>. Cela permet de définir à la fois la direction dans laquelle les éléments flexibles sont
+					alignés (par exemple, <em>row</em> ou <em>column</em>) et s’ils doivent passer à la ligne lorsqu'il n'y a plus d’espace (avec <strong>flex-wrap</strong>).
+				</p>
+
+				<p class="description" style="font-weight: bold; padding-top: 1rem">
+					<strong class="gold">flex-grow</strong> définit la capacité d'un élément à s'agrandir pour remplir l'espace disponible dans son conteneur. Cette propriété utilise une valeur numérique (ex. : <em>1</em> pour qu’il prenne de l’espace disponible,
+					<em>0</em> pour qu’il conserve sa taille d'origine).
+				</p>
+
+				<p class="description" style="font-weight: bold; padding-top: 1rem">
+					<strong class="gold">flex-shrink</strong> détermine la capacité d'un élément à rétrécir si l’espace est limité. Comme <strong>flex-grow</strong>, cette propriété accepte une valeur numérique. Par exemple, une valeur de <em>1</em> autorise
+					l'élément à réduire sa taille si nécessaire, alors qu’une valeur de <em>0</em> le maintient à sa taille initiale même si l’espace est restreint.
+				</p>
+
+				<p class="description" style="font-weight: bold; padding-top: 1rem">
+					<strong class="gold">order</strong> contrôle l’ordre d’affichage des éléments dans un conteneur flex. Par défaut, chaque élément a <strong>order: 0</strong>, mais on peut attribuer une valeur positive ou négative pour modifier sa position. Les
+					éléments avec un ordre inférieur apparaîtront avant ceux avec un ordre supérieur, indépendamment de leur position dans le HTML.
+				</p>
+
+				<button class="btn" onclick="conclusion()">Conclusion</button>
+			</div>
+
+			<div class="hidden" id="conclusionDiv">
+				<p class="description" style="font-weight: bold">
+					display: flex est idéal pour organiser des éléments en une seule dimension (ligne ou colonne). Pour des mises en page plus complexes avec les lignes et colonnes en même temps, donc en 2D, <strong class="gold">display: grid</strong> est plus
+					adapté, offrant un meilleur contrôle en deux dimensions. Utilisez flex pour des agencements linéaires simples et grid pour des structures bidimensionnelles avancées. Tu ne sais pas c'est quoi grid? Il y a une section qui t'attend dessus
+					<a class="links" href="grid.html">juste ici !</a>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
